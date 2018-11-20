@@ -52,11 +52,41 @@ describe('Park', function() {
     assert.strictEqual(actual, dino3);
   });
 
-  it('should be able to find all dinosaurs of a particular species', function (
-    
-  ) {
-
+  it('should be able to find all dinosaurs of a particular species', function (){
+    park1.addDinosaur(dino1);
+    park1.addDinosaur(dino2);
+    park1.addDinosaur(dino3);
+    park1.addDinosaur(dino4);
+    const actual = park1.findAllOfSpecies('Herrerasaurus')[0].diet;
+    assert.strictEqual(actual, 'Carnivore');
   });
+
+  it('should be able to total up visitors per day', function () {
+    park1.addDinosaur(dino1);
+    park1.addDinosaur(dino2);
+    park1.addDinosaur(dino3);
+    park1.addDinosaur(dino4);
+    const actual = park1.totalVisitorsPerDay();
+    assert.strictEqual(actual, 500);
+  })
+
+  it('should be able to calculate total visitors per year', function () {
+    park1.addDinosaur(dino1);
+    park1.addDinosaur(dino2);
+    park1.addDinosaur(dino3);
+    park1.addDinosaur(dino4);
+    const actual = park1.totalVisitorsPerYear();
+    assert.strictEqual(actual, 182500);
+  })
+
+  it('should be able to calculate total ticket revenue per year', function () {
+    park1.addDinosaur(dino1);
+    park1.addDinosaur(dino2);
+    park1.addDinosaur(dino3);
+    park1.addDinosaur(dino4);
+    const actual = park1.totalTicketRevenuePerYear();
+    assert.strictEqual(actual, 2737500);    
+  })
 
   it('should be able to remove all dinosaurs of a particular species');
 
